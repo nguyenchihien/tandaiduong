@@ -1,6 +1,6 @@
 # Site settings site.title
 title: Tân Đại Dương - Logistic
-url: "https://nguyenchihien.github.io/tandaiduong"   # domain-name 
+url: "https://nguyenchihien.github.io/"   # domain-name 
 baseurl: "/tandaiduong"                      # repo-name 
 description: "Đem đến giải pháp tối ưu cho khách hàng trong vấn đề vận chuyển!"
 
