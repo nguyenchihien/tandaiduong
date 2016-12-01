@@ -1,8 +1,8 @@
-var URL = "/business"; //-- EDIT here 
+var URL = "/tandaiduong"; //-- EDIT here 
 // var URL = ""; //-- EDIT here 
 var facebookAppId = "123";
 var googleAnalyticId = "UA-11";
-var keywords = "marketing online hieu qua";
+var keywords = "vận chuyển, logistics";
 
 var colors = [
     "red","blue","green","orange",  
@@ -14,7 +14,7 @@ var colors = [
     // "brown", "grey", "blue-grey"      
 ];
 
-// colors = ['green', 'deep-purple']
+colors = ['ligh-blue']
 var i = Math.floor( Math.random() * (colors.length - 0) + 0 );
 var chooseColor = colors[i].toString();
 
