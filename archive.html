@@ -1,0 +1,22 @@
+---
+permalink: /archive/
+title: Archive
+description: "A history list."
+header-img: "img/about-bg.jpg"
+---
+
+<h2 class="post-title">Blog Archive</h2>
+
+{% for post in site.posts %}
+  {% capture month %}{{ post.date | date: '%m%Y' }}{% endcapture %}
+  {% capture nmonth %}{{ post.next.date | date: '%m%Y' }}{% endcapture %}
+    {% if month != nmonth %}
+      {% if forloop.index != 1 %}</ul>{% endif %}
+      <h3><i class="fa fa-calendar"></i> {{ post.date | date: '%B %Y' }}</h3><ul>
+    {% endif %}
+  <li>
+    <i class="fa fa-book"></i>  
+    <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    <span class="time">({{ post.date | date: "%d/%m/%Y" }})</span> 
+  </li>
+{% endfor %}

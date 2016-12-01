@@ -1,0 +1,139 @@
+---
+layout: bootstrap/default
+---
+
+<!-- Post Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% endif %}
+                </div>
+                <p class="post-meta">
+                    {% if page.author %}
+                      <i class="fa fa-user"></i> {{ page.author }}
+                    {% else %}
+                      {{ site.title }}
+                    {% endif %} 
+                      <i class="fa fa-calendar"></i> {{ page.date | date: "%B %-d, %Y" }}
+                </p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				        {{ content }}
+
+                <!-- share  -->
+                <div class="share-page">
+                  <h3><i class="fa fa-share-alt"></i> Share this on: </h3>                  
+                  <a class="btn btn-info blue" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.baseurl }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter</a>
+
+                  <a class="btn btn-danger red" href="https://plus.google.com/share?url={{ site.baseurl }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+">Google+</a>
+
+                  <a class="btn btn-primary blue" href="https://facebook.com/sharer.php?u={{ site.baseurl }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>
+
+                  <a class="btn btn-danger red" href="http://pinterest.com/pin/create/button/?url=<URL>&description=<TITLE>" rel="nofollow" target="_blank" title="Share on Google+">Pinterest</a>
+
+                  <a class="btn btn-info blue" href="http://www.linkedin.com/shareArticle?mini=true&url=<URL>&title=<TITILE>&summary=<DESCRIPTION>&source=<DOMAIN>" rel="nofollow" target="_blank" title="Share on Google+">LinkedIn</a>
+
+                  <a class="btn btn-danger red" href="http://www.tumblr.com/share/link?url=<URL>&name=<TITLE>&description=<DESCRIPTION>" rel="nofollow" target="_blank" title="Share on Google+">Tumblr</a>
+
+                  <a class="btn btn-danger red" href="http://www.reddit.com/submit?url=<URL>&title=<TITLE>" rel="nofollow" target="_blank" title="Share on Google+">Reddit</a>
+                  
+
+                </div>
+                
+                <hr>
+
+                <!-- pager -->
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+
+<!-- tags -->
+    <div>
+      {% if post %}
+        {% assign tags = post.tags %}
+      {% else %}
+        {% assign tags = page.tags %}
+      {% endif %}
+      
+      {% for tag in tags %}
+        <a href="{{site.baseurl}}/tags/#{{tag|slugize}}"><i class="fa fa-tags"></i> {{tag}}</a>
+      {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </div>
+
+<!-- categories -->
+    <div>
+      {% if post %}
+        {% assign categories = post.categories %}
+      {% else %}
+        {% assign categories = page.categories %}
+      {% endif %}
+      {% for category in categories %}
+        <a href="{{site.baseurl}}/categories/#{{category|slugize}}"><i class="fa fa-folder-open"></i> {{category}}</a>
+      {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </div>
+<!-- related posts -->
+      
+    <!-- tag related --> 
+    <h3><i class="fa fa-link"></i> Related posts</h3>
+      {% assign listed_posts_urls = page.url | split: ' ' %}
+      
+      <ul>
+      {% for item in tags %} <!-- set o tren -->
+        {% for mypost in site.tags[item] %}
+          {% if listed_posts_urls contains mypost.url %}
+          {% else %}
+            <li>
+              <a href="{{ site.baseurl }}{{ mypost.url }}">{{ mypost.title }}</a>
+            </li>
+            {% assign listed_posts_urls = listed_posts_urls | push: mypost.url %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      </ul>
+
+<!-- comments -->
+<!-- comment box -->
+
+    </div>
+  </div>
+</div>
+
+
+<hr>

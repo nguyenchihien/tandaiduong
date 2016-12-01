@@ -1,0 +1,80 @@
+# Site settings site.title
+title: Digitalife
+url: "https://digitalife-top.github.io"   # domain-name 
+baseurl: "/business"                      # repo-name 
+description: "Write your site description here. Meta description as well!"
+
+copyright_name: Digitalife.top #footer
+header-img: img/home-bg.jpg
+email: nguyencongvu@gmail.com
+author: "Vu, Nguyen"
+
+language: "vi" #seo
+locale: "en-US"  #seo
+keyword: "marketing online hieu qua" #seo
+og_image: "assets/img/small/logo.png" #seo
+comment_activate: false #set false or "" to disabled 
+
+#social account --> EDIT 
+twitter_username: "vunc"
+github_username:  digitalife-top
+facebook_username:  "nguyencongvu"
+facebook_app_id:  "303370230021409"
+facebook_admins: "791078183"
+email_username:  nguyencongvu@gmail.com
+google_plus_id:  "101600677672081932719"
+google_form: "https://goo.gl/forms/UNBSCvJQMnKi3WRZ2" # POPUP contact-form 
+
+#footer contact vcard --> EDIT 
+contact_name: "Cty TNHH Dịch Vụ Công Nghệ Minh Vũ" 
+contact_call_to: "+84937980003"
+contact_phone: "(08)6684-8953"
+contact_fax: "(08)6684-8953"
+contact_address: "666 Đường 3/2 P.14, Q.10"
+contact_city: "TP.Hồ Chí Minh"
+contact_country: "Vietnam"
+
+# Analytics --> EDIT if needed 
+# google_tracking_id:
+google_site_verification : "UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y"
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+# ================ DO-NOT-EDIT =========================
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: none #date pretty ordinal 
+paginate: 5
+paginate_path: "blogs/page:num/"
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: 
+  - jekyll-paginate
+  - jekyll-feed
+
+defaults:
+  -
+    scope:
+      path: "/"
+      type: "pages"
+    values:
+      layout: materialize/landingpage
+      author: "Vu, Nguyen"
+      #header-img: "img/contact-bg.jpg"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: materialize/page
+      author: "Vu, Nguyen"
+      #header-img: "img/contact-bg.jpg"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: materialize/post
+      author: "Vu, Nguyen"

@@ -1,0 +1,74 @@
+a.post-link  {text-decoration: none; color: #333;}
+a.post-link:hover {text-decoration: none; color: #000; font-weight: bold;}
+
+footer a, .foot a {text-decoration: none; color: #039be5;}
+footer a:hover, .foot a:hover {text-decoration: none; font-weight: bold;}
+
+img {width: 100%}
+img.logo {margin-top: 0px; margin-left: 5px; height: 80px;}
+.logo-text {font-size: 80%; font-family: 'Kanit'}
+
+p.textillate {
+    border-radius: 10px;
+    background: #fff;
+    padding: 7px; 
+    max-width: 400px;
+    height: 40px; 
+}
+
+hr.small {
+    max-width: 100px;
+    border: solid 4px #fff;
+    background: #FFF;
+}
+hr.style {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+ul.sidebar li {border-bottom: solid 1px #eee; }
+
+h1 {font-size: 300%;}
+h1.title-large {font-size: 480%; font-weight: bold; font-family:'Kanit'}
+h2 {font-size: 180%;}
+h2.post-title {font-size: 200%; font-weight: bold; letter-spacing:-1px;}
+h3 {font-size: 150%;}
+h3.post-subtitle {font-size: 150%;}
+h4 {font-size: 120%; font-weight: bold;}
+
+section {padding-top: 40px; padding-bottom:40px}
+section#post-content ul li {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.owl-carousel .owl-item img{
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+}
+
+.collapsible-body {background: #fff;}
+
+@media print body {
+    font-family: "Arial", serif;
+    font-size: 1em;
+    color: #333333;
+    margin-top: 2cm;
+    margin-right: 2cm;
+    margin-bottom: 1.5cm;
+    margin-left: 2cm;
+}
+
+.modal {
+    min-width: 90%;
+    min-height: 90%;
+}
+.modal .modal-content {
+    padding: 2px;
+}
+#product .card {
+    min-height: 420px;
+}
+

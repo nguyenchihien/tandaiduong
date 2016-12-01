@@ -1,0 +1,25 @@
+---
+permalink: /tags/
+title: Tags
+description: "Read tagged posts."
+---
+
+<h2 class="post-title">Tagged Posts</h2>
+
+{% for item in site.tags %}
+    {% capture tag_name %}{{ item | first }}{% endcapture %}
+    
+    <div id="#{{ tag_name | slugize }}">
+      <h3><i class="fa fa-tags"></i> {{ tag_name }}</h3>
+      <a name="{{ tag_name | slugize }}"></a>
+      <div class="post-link">
+          <ul>
+          {% for post in site.tags[tag_name] %}
+            <li>
+                <i class="fa fa-book"></i>  
+                <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
+          {% endfor %}
+          </ul>
+      </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,28 @@
+---
+permalink: /categories/
+title: Categories
+description: "Read categorized posts."
+header-img: "img/about-bg.jpg"
+---
+
+<!-- List of categories -->
+
+<h2 class="post-title">Blog Categories</h2>
+
+{% for category in site.categories %}
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    
+    <div id="#{{ category_name | slugize }}">
+      <h3><i class="fa fa-folder-open"></i> {{ category_name }}</h3>
+      <!-- <a name="{{ category_name | slugize }}"></a> -->
+      <div class="post-link">
+          <ul>
+          {% for post in site.categories[category_name] %}
+            <li>
+            <i class="fa fa-book"></i>  
+            <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
+          {% endfor %}
+          </ul>
+      </div>
+    </div>
+{% endfor %}

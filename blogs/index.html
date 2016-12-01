@@ -1,0 +1,44 @@
+---
+#permalink: KHONG DUOC DUNG de paginate!
+title: Blogs
+description: "Follow our news and update"
+---
+
+{% for post in paginator.posts %}
+<article>
+    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+        <h2 class="post-title">{{ post.title }}</h2>
+    </a>
+    {% if post.description %}
+    <h3 class="post-subtitle">
+        {{ post.description }}
+    </h3>
+    {% endif %}
+    <!-- <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+     -->
+    <p class="post-meta">
+    {% if post.author %}
+      <i class="fa fa-user"></i> {{ post.author }}
+    {% else %}
+      {{ site.title }}
+    {% endif %} 
+      <i class="fa fa-calendar"></i> {{ post.date | date: "%B %-d, %Y" }}
+    </p>
+</article>
+<hr class="style">
+
+<div style="margin-top: 40px"></div>
+
+{% endfor %}
+
+<!-- Pager -->
+{% if paginator.total_pages > 1 %}
+<div>
+    {% if paginator.previous_page %}
+        <a class="btn btn-flat grey lighten-4" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    {% endif %}
+    {% if paginator.next_page %}
+        <a class="btn btn-flat grey lighten-4" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+    {% endif %}
+</div>
+{% endif %}

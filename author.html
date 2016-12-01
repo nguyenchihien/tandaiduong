@@ -1,0 +1,23 @@
+---
+permalink: /authors/
+title: Authors
+description: "Thanks for those guys."
+header-img: "img/about-bg.jpg"
+---
+
+<h2 class="post-title">Blog Authors</h2>
+
+{% for post in site.posts %}
+  {% capture per %}{{ post.author  }}{% endcapture %}
+  {% capture nper %}{{ post.next.author }}{% endcapture %}
+    {% if per != nper %}
+      {% if forloop.index != 1 %}</ul>{% endif %}
+      <h3><i class="fa fa-user"></i> {{ post.author }}</h3>
+      <ul>
+    {% endif %}
+  <li>
+    <i class="fa fa-book"></i>  
+    <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    <span class="time">({{ post.date | date: "%d/%m/%Y" }})</span> 
+  </li>
+{% endfor %}

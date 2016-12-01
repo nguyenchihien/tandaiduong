@@ -1,0 +1,118 @@
+<!-- ============= ADDRESS MAP PARALLAX ============== -->
+<div class="divider"></div>
+<div class="parallax-container" style="height:260px;">
+    <div class="parallax"><img src="{{ site.baseurl }}/assets/img/small/address.jpg" ALT="{{ site.keyword }}" ></div>
+</div>
+
+<!-- ============= FOOTER ============== -->
+<section class="grey darken-4 white-text">
+    <footer class="row container">
+        <div class="col s12 m4">
+            <p><b>Liên hệ</b></p>
+
+            <!-- ============= VCARD ============== -->
+            <ul class="vcard">
+              <li class="org"><a hrer="{{ site.baseurl }}">{{ site.title }}</a></li>
+              <li class="org">{{ site.contact_name }}</li>
+              <li>
+                <div class="adr">
+                  <div class="street-address">{{ site.contact_address }}</div>
+                  <span class="locality">{{ site.contact_city }}</span>, 
+                  <span class="country-name">{{ site.contact_country }}</span>
+                </div>
+              </li>
+              <li class="tel">Tel: {{ site.contact_phone }}</li>
+              <li class="fax">Fax: {{ site.contact_fax }}</li>
+              <li>
+                <a class="email" href="mailto:{{ site.email_username }}">Email Us
+                </a>
+              </li>
+              <!-- <li class="fn">Vu, Nguyen (CEO)</li> -->
+           </ul>
+
+       </div>
+        <div class="col s12 m3">
+            <p><b>Tìm hiểu thêm</b></p>
+            <ul>
+                <li><a>Landing Page</a></li>
+                <li><a href="https://www.entrepreneur.com/topic/marketing">Marketing Blog</a></li>
+                <li><a></a></li> 
+                <li><a></a></li>
+            </ul>
+        </div>
+        <div class="col s12 m5">
+          <p><b>Social</b></p>
+          <div>
+              <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                  </span>
+              </a>
+              {% if site.twitter_username %}
+                  <a href="https://twitter.com/{{ site.twitter_username }}">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              {% endif %}
+              {% if site.facebook_username %}
+                  <a href="https://www.facebook.com/{{ site.facebook_username }}">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              {% endif %}
+              {% if site.github_username %}
+                  <a href="https://github.com/{{ site.github_username }}">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              {% endif %}
+              {% if site.email_username %}
+                  <a href="mailto:{{ site.email_username }}">
+                      <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                      </span>
+                  </a>
+              {% endif %}
+          </div>
+        </div>
+    </footer>
+</section>
+
+<div class="foot grey darken-3 white-text center">
+    Liên kết: <a href="http://teamshow.org">Teamshow</a> 
+    | <a href="">Định cư Úc</a> 
+    | <a href="http://openmize.com">Openmize</a> 
+    | <a href="">Tanyoli</a> 
+    | <a href="http://spasaigon.top">SpaSaigon</a> 
+    | <a href="">BackpackerSaigon</a>
+    | <a href="http://powernet.club">Powernet.club</a>  
+</div>
+<div class="foot grey darken-2 white-text center" style="height:60px; padding-top:20px">
+    <div class="row">
+        <div class="col s12 m6">
+            Copyright &copy; {{ site.copyright_name }} {{ site.time | date: '%Y' }}
+        </div>
+        <div class="col s12 m6">
+            Designed by 
+            | <a href="http://thietkewebnhanh.top">Thietkewebnhanh.top</a> 
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ "/assets/lazyload.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/index.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/setting.js " | prepend: site.baseurl }}"></script>
+<script>
+    loadAll();
+</script>
+
+

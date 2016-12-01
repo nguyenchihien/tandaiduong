@@ -1,0 +1,161 @@
+---
+layout: materialize/default
+---
+
+<!-- ============= PARALLAX ============== -->
+<div class="parallax-container" style="height:380px;">
+    {% if page.header-img %}
+        <div class="parallax"><img src="{{ page.header-img }}" ALT="{{ page.keyword | default: site.keyword }}"></div>
+    {% else %}
+        <div class="parallax"><img src="{{ site.baseurl }}/assets/img/small/parallax.jpg" ALT="{{ page.keyword | default: site.keyword }}" ></div>
+    {% endif %}
+
+    <!-- text inside parallax -->
+    <div class="white-text container">
+        <div style="margin-top: 100px;"></div>
+        
+        <h1 class="lightSpeedIn"><b>{{ page.title }}</b></h1>
+        {% if page.description %}
+            <h3><i class="fa fa-quote-right"></i> {{ page.description }}</h3>
+        {% endif %}    
+    </div>
+</div>
+
+<div class="container">
+
+  <section id="post-content">
+    <p>
+      {% if page.author %}
+        <i class="fa fa-user"></i> {{ page.author }}  
+      {% else %}
+        {{ site.title }}
+      {% endif %} 
+        <i class="fa fa-calendar"></i> {{ page.date | date: "%d/%m/%Y" }}  
+    </p>
+    <article>
+      {{ content }}
+    </article>
+    
+    <!-- pager -->
+    <div id="paging"> 
+      <div>
+          {% if page.previous.url %}
+              <a class="btn btn-flat grey lighten-4" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+          {% endif %}
+          {% if page.next.url %}
+              <a class="btn btn-flat grey lighten-4" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+          {% endif %}
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <div id="share">
+    <div class="card-panel white row">
+    <h3><i class="fa fa-share-alt"></i> Share this on </h3>                  
+    
+    <a class="col s6 m2 btn btn-flat blue white-text" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.baseurl }}{{ page.url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">
+      <i class="fa fa-twitter"></i> Twitter
+    </a>
+
+    <a class="col s6 m2 btn btn-flat red darken-3 white-text" href="https://plus.google.com/share?url={{ site.baseurl }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+">
+      <i class="fa fa-google-plus"></i> Google+
+    </a>
+
+    <a class="col s6 m2 btn btn-flat blue darken-3 white-text" href="https://facebook.com/sharer.php?u={{ site.baseurl }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
+      <i class="fa fa-facebook"></i> Facebook
+    </a>
+
+    <!-- <a class="btn btn-flat red lighten-3 white-text" href="http://pinterest.com/pin/create/button/?url=<URL>&description=<TITLE>" rel="nofollow" target="_blank" title="Share on Google+">
+      <i class="fa fa-pinterest"></i> Pinterest
+    </a> -->
+
+  <!--   <a class="btn btn-flat blue lighten-3 white-text" href="http://www.linkedin.com/shareArticle?mini=true&url=<URL>&title=<TITILE>&summary=<DESCRIPTION>&source=<DOMAIN>" rel="nofollow" target="_blank" title="Share on Google+">
+      <i class="fa fa-linkedin"></i> LinkedIn
+    </a>
+   -->
+    <a class="col s6 m2 btn btn-flat grey darken-3 white-text" href="http://www.tumblr.com/share/link?url=<URL>&name=<TITLE>&description=<DESCRIPTION>" rel="nofollow" target="_blank" title="Share on Google+">
+      <i class="fa fa-tumblr"></i> Tumblr
+    </a>
+
+    <a class="col s6 m2 btn btn-flat red darken-1 white-text" href="http://www.reddit.com/submit?url=<URL>&title=<TITLE>" rel="nofollow" target="_blank" title="Share on Google+">
+      <i class="fa fa-reddit"></i> Reddit
+    </a>
+
+    </div> <!-- card panel -->
+
+    <div>
+  <!-- tags -->
+      <p>
+        {% if post %}
+          {% assign tags = post.tags %}
+        {% else %}
+          {% assign tags = page.tags %}
+        {% endif %}
+        
+        <b>Tags: </b> 
+        {% for tag in tags %}
+          <a href="{{site.baseurl}}/tags/#{{tag|slugize}}"><i class="fa fa-tags"></i> {{tag}}</a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+        {% endfor %}
+
+  <!-- categories -->
+        {% if post %}
+          {% assign categories = post.categories %}
+        {% else %}
+          {% assign categories = page.categories %}
+        {% endif %}
+        <b>     - Category:</b> 
+        {% for category in categories %}
+          <a href="{{site.baseurl}}/categories/#{{category|slugize}}"><i class="fa fa-folder-open"></i> {{category}}</a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+        {% endfor %}
+      </p>
+  </div>
+  </div>
+
+  <div class="divider"></div>
+  <div id="related">
+  <!-- related posts -->
+        
+      <!-- tag related --> 
+      <h3><i class="fa fa-link"></i> Related posts</h3>
+        {% assign listed_posts_urls = page.url | split: ' ' %}
+        
+        <ul>
+        {% for item in tags %} <!-- set o tren -->
+          {% for mypost in site.tags[item] %}
+            {% if listed_posts_urls contains mypost.url %}
+            {% else %}
+              <li>
+                <i class="fa fa-folder-open"></i> 
+                <a class="post-link"  href="{{ site.baseurl }}{{ mypost.url }}">{{ mypost.title }}</a>
+              </li>
+              {% assign listed_posts_urls = listed_posts_urls | push: mypost.url %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+        </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- comments -->
+  {% if site.comment_activate %}
+    <h3><i class="fa fa-comments"></i> Comments</h3>
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <div id="comments"></div>
+    <script>
+      gapi.comments.render('comments', {
+          href: window.location,
+          width: '624',
+          first_party_property: 'BLOGGER',
+          view_type: 'FILTERED_POSTMOD'
+      });
+    </script>
+  {% endif %}
+
+</div>
+

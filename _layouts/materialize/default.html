@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.language | default: en }}">
+
+{% include materialize/head.html %}
+
+<body>
+
+    {% include materialize/nav.html %}
+    
+    {{ content }}
+
+    {% include materialize/footer.html %}
+
+    <!-- ============= FLOAT BTN  and MODAL ============== -->
+    {% include materialize/float-btn.html %}
+    {% include materialize/modal.html %}
+
+    {% include materialize/ga.html %}
+
+</body>
+
+</html>
