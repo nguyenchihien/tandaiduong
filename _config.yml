@@ -1,8 +1,8 @@
 # Site settings site.title
-title: Digitalife
-url: "https://digitalife-top.github.io"   # domain-name 
-baseurl: "/business"                      # repo-name 
-description: "Write your site description here. Meta description as well!"
+title: Tân Đại Dương - Logistic
+url: "https://nguyenchihien.github.io/tandaiduong"   # domain-name 
+baseurl: "/tandaiduong"                      # repo-name 
+description: "Đem đến giải pháp tối ưu cho khách hàng trong vấn đề vận chuyển!"
 
 copyright_name: Digitalife.top #footer
 header-img: img/home-bg.jpg
@@ -11,7 +11,7 @@ author: "Vu, Nguyen"
 
 language: "vi" #seo
 locale: "en-US"  #seo
-keyword: "marketing online hieu qua" #seo
+keyword: "vận chuyển, logistic" #seo
 og_image: "assets/img/small/logo.png" #seo
 comment_activate: false #set false or "" to disabled 
 
@@ -26,11 +26,11 @@ google_plus_id:  "101600677672081932719"
 google_form: "https://goo.gl/forms/UNBSCvJQMnKi3WRZ2" # POPUP contact-form 
 
 #footer contact vcard --> EDIT 
-contact_name: "Cty TNHH Dịch Vụ Công Nghệ Minh Vũ" 
-contact_call_to: "+84937980003"
-contact_phone: "(08)6684-8953"
-contact_fax: "(08)6684-8953"
-contact_address: "666 Đường 3/2 P.14, Q.10"
+contact_name: "Công ty Cổ phần Thương Mại và Dịch vụ Tiếp Vận Tân Đại Dương" 
+contact_call_to: "+84837754177"
+contact_phone: "(08)8 3775-4178"
+contact_fax: "(08)8 3775 4180"
+contact_address: "89, Đường số 75, Phường Tân Phong, Quận 7"
 contact_city: "TP.Hồ Chí Minh"
 contact_country: "Vietnam"
 
